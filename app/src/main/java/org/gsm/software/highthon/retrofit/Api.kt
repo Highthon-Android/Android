@@ -1,7 +1,9 @@
 package org.gsm.software.highthon.retrofit
 
 import org.gsm.software.highthon.BuildConfig
+import org.gsm.software.highthon.model.meal.Meal
 import org.gsm.software.highthon.model.meal.Row
+import org.gsm.software.highthon.model.schoolinfo.SchoolInfo
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -16,7 +18,7 @@ interface Api {
         @Query("Type") type: String = "json", //api를 json 형식으로 읽어오기
         @Query("pIndex") index: Int = 1,
         @Query("pSize") size: Int = 100
-    ):retrofit2.Call<Row>
+    ):retrofit2.Call<Meal>
 
 
     @GET("hub/schoolInfo")
@@ -26,7 +28,7 @@ interface Api {
         @Query("SCHUL_NM") school_name: String,
         @Query("pIndex") index: Int = 1,
         @Query("pSize") size: Int = 100,
-    ):retrofit2.Call<org.gsm.software.highthon.model.schoolinfo.Row>
+    ):retrofit2.Call<SchoolInfo>
 
 
 }
