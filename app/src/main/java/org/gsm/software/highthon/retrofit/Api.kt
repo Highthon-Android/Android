@@ -1,10 +1,9 @@
 package org.gsm.software.highthon.retrofit
 
-import android.provider.Contacts.SettingsColumns.KEY
 import org.gsm.software.highthon.BuildConfig
+import org.gsm.software.highthon.model.meal.Row
 import retrofit2.http.GET
 import retrofit2.http.Query
-import javax.security.auth.callback.Callback
 
 interface Api {
     @GET("hub/mealServiceDietInfo")
@@ -17,7 +16,7 @@ interface Api {
         @Query("Type") type: String = "json", //api를 json 형식으로 읽어오기
         @Query("pIndex") index: Int = 1,
         @Query("pSize") size: Int = 100
-    ):retrofit2.Callback<Any>
+    ):retrofit2.Call<Row>
 
 
     @GET("hub/schoolInfo")
@@ -27,6 +26,7 @@ interface Api {
         @Query("SCHUL_NM") school_name: String,
         @Query("pIndex") index: Int = 1,
         @Query("pSize") size: Int = 100,
-    ):retrofit2.Callback<Any>
+    ):retrofit2.Call<org.gsm.software.highthon.model.schoolinfo.Row>
+
 
 }
